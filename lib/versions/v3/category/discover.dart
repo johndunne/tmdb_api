@@ -219,6 +219,7 @@ class Discover extends Category<V3> {
     int? firstAirDateYear,
     String? timezone,
     double? voteAverageGte,
+    double? voteAverageLte,
     int? voteCountGte,
     @Deprecated('Use withGenres instead') String? withGeners,
     @Deprecated('Use withoutGenres instead') String? withoutGeners,
@@ -277,6 +278,10 @@ class Discover extends Category<V3> {
 
     if (voteAverageGte != null) {
       queries.add('vote_average.gte=$voteAverageGte');
+    }
+
+    if (voteAverageLte != null) {
+      queries.add('vote_average.lte=$voteAverageLte');
     }
 
     if (voteCountGte != null) {
